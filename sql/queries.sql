@@ -56,6 +56,7 @@ order by 1,2;
 
 
 
+
 -- Nombre grafica: % cambio signups & total_ordes
 /*
 WITH base AS (
@@ -89,3 +90,29 @@ FROM cambio
 ORDER BY period;
 */
 
+
+
+
+
+-- Nombre de grafica: active_users
+/*
+SELECT 
+  date_trunc('${groupBy}', order_timestamp)::date as time,
+  COUNT(DISTINCT user_id) as active_users
+FROM orders 
+WHERE status = 'delivered'
+group by 1
+*/
+
+
+
+
+-- Nombre de grafica: Completed_orders
+/*
+SELECT
+  DATE_TRUNC('${groupBy}', order_timestamp) AS period,
+  COUNT(*) AS total_orders
+FROM orders
+GROUP BY 1
+ORDER BY 1;
+*/
