@@ -19,6 +19,3 @@ Signups from users who had a delivered order.
 
 4. Completed_orders: 
 Number order completed month over month.
-
-
-
